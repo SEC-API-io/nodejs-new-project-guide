@@ -37,7 +37,7 @@ Guide for setting up new Node.js projects
 - `modules/helpers.js` file that includes any type of generic helper functions, such as writing stuff to files (`toFile(...)`), de/compression, command-line confirm, etc
 - `config/index.js` file that includes all the configuration variables for the project, such as API keys, URLs, etc.
 - `.env` file to store all the environment variables, such as API keys, URLs, etc.
-- `.gitignore` file to ignore `node_modules`, `.env`, and other files that should not be pushed to GitHub
+- `.gitignore` file to ignore `node_modules`, `.env`, `output` and other files/folders that should not be pushed to GitHub
 - `.nvmrc` file to specify the node.js version for the project
 
 **File naming convention:**
@@ -51,20 +51,20 @@ Guide for setting up new Node.js projects
 project-name
 ├── .gitignore
 ├── .nvmrc
-├── .env
+├── .env              // add all sensitive environment variables here
 ├── README.md
 ├── config
-│   └── index.js
-├── modules
+│   └── index.js      // load .env variables and others to export them
+├── modules           // includes app logic
 │   ├── helpers.js
 │   ├── module-name1.js
 │   └── module-name2.js
 ├── output
 │   ├── log.txt
 │   └── cache.json
-├── package.json
-├── package-lock.json // auto-generated
-├── node_modules
+├── package.json      // auto-generated after `npm init -y`
+├── package-lock.json // auto-generated after `npm install <package-name>`
+├── node_modules      // auto-generated after `npm install <package-name>`
 ```
 
 ## Other Stuff

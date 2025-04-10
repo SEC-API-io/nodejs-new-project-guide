@@ -1,2 +1,4 @@
 .env
 node_modules
+# uncomment line below to ignore all files in `output` folder
+# output
