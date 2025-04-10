@@ -1,6 +1,9 @@
 # Node.js - New Project Guide
 
-Guide for setting up a new Node.js projects
+Guide for setting up new Node.js projects
+
+> No TypeScript.
+> Use JavaScript ES6+ syntax (`let`, `const`, `async/await`, etc.).
 
 ## Version Management
 
@@ -17,13 +20,16 @@ Guide for setting up a new Node.js projects
 ## For every new project
 
 - Create a new folder for every new project
-- Create a new git repo on GitHub. Run `git init` to initialize repo locally.
+- Create a new git repo on GitHub. Run
+  - `git init` to initialize repo locally.
+  - `git remote add origin <repo-url>` to add remote repo.
+  - Use Source Control tab in VS Code to add, commit and push files to GitHub repo.
 - Init node.js project by `npm init -y` to create `package.json` file
 - Install `npm i dotenv` locally to read variables from `.env` file
 
 ### Project Directory Structure
 
-Create:
+**Create:**
 
 - `README.md`
 - `modules` folder that includes all files for project
@@ -34,6 +40,11 @@ Create:
 - `.gitignore` file to ignore `node_modules`, `.env`, and other files that should not be pushed to GitHub
 - `.nvmrc` file to specify the node.js version for the project
 
+**File naming convention:**
+
+- `my-module.js`: use Kebab-case for file names, e.g. `my-module.js`, `my-module-name.js`, etc.
+- `const myFunction = () => { ... }`: use camelCase for function names, e.g. `myFunction`, `myFunctionName`, etc.
+
 **Structure:**
 
 ```
@@ -42,16 +53,18 @@ project-name
 ├── .nvmrc
 ├── .env
 ├── README.md
-├──  modules
+├── config
+│   └── index.js
+├── modules
 │   ├── helpers.js
 │   ├── module-name1.js
 │   └── module-name2.js
-├──  output
+├── output
 │   ├── log.txt
 │   └── cache.json
-├──  package.json
-├──  package-lock.json
-├──  node_modules
+├── package.json
+├── package-lock.json // auto-generated
+├── node_modules
 ```
 
 ## Other Stuff
