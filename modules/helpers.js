@@ -3,6 +3,7 @@ const zlib = require('zlib');
 const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
+const prettier = require('prettier');
 
 module.exports.md5 = (string) => {
   return crypto.createHash('md5').update(string).digest('hex');
@@ -69,4 +70,14 @@ module.exports.confirm = async (question) => {
     console.log('Operation aborted by the user.');
     process.exit(0);
   }
+};
+
+module.exports.formatOutput = async (outputContent) => {
+  const formattedOutputContent = await prettier.format(outputContent, {
+    parser: 'json', // Use the JSON parser for formatting JSON content
+    semi: false,
+    singleQuote: false,
+    trailingComma: 'none',
+  });
+  return formattedOutputContent;
 };

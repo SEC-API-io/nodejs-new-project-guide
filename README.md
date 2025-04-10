@@ -67,10 +67,37 @@ project-name
 ├── node_modules      // auto-generated after `npm install <package-name>`
 ```
 
+**File Structure:**
+
+Start each file by importing required modules. Import modules in the following order:
+
+1. `../config` or `require('dotenv').config()`
+2. Native modules, eg `fs`, `path`, etc.
+3. Third-party modules, eg `axios`, `express`, etc.
+4. Local modules, eg `./helpers`, `./module-name1`, etc.
+
+```js
+const config = require('../config'); // config variables
+const fs = require('fs'); // native module
+const lodash = require('lodash'); // installed via `npm i axios`
+const helpers = require('./helpers'); // local module
+```
+
+## Useful packages:
+
+- lodash
+- axios
+- dotenv
+
 ## Other Stuff
 
+- When deciding what npm package to install, select the packages with higher download counts to ensure a larger community support
 - Use UUIDs to create unique IDs
 - Use Docker for databases and other services (eg PostgreSQL, ElasticSearch, Redis, etc.)
+- Create `PROTOCOL.md` outlining steps on how to perform a repeatable process and clean up once done
+- Use `.jsonl` files for large JSON files
+- Sort JSON(L) files by `filedAt` or similar timestamp fields to make it easier to read
+- Use `JSON.stringify(obj, null, 2)` to format JSON objects
 
 ## VS Code
 
@@ -87,5 +114,32 @@ Setup VSCode to run files in terminal on `cmd + enter`:
     "text": "node ${file}\u000D"
   },
   "when": "resourceExtname == .js || resourceExtname == .mjs"
+}
+```
+
+Format file on save:
+
+- Open the Command Palette (Command + Shift + P) and type "Preferences: Open Settings (JSON)". Select it.
+- Add:
+
+```json
+{
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2 // Set the indent size to 2 spaces for JavaScript
+  },
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "es5"
+}
+```
+
+## File Stuff
+
+```js
+const run = async () => {...}
+
+if (require.main === module) {
+    run();
 }
 ```
