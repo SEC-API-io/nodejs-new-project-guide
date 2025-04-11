@@ -19,7 +19,15 @@ Guide for setting up new Node.js projects
 
 ## For every new project
 
-- Create a new folder for every new project
+### Auto-setup new project
+
+- Create new folder for new project
+- Copy `modules/setup-new-project.js` file to new project folder
+- Run `node setup-new-project.js` to setup all files and project structure
+
+### Manual setup
+
+- Create new folder for new project
 - Create a new git repo on GitHub. Run
   - `git init` to initialize repo locally.
   - `git remote add origin <repo-url>` to add remote repo.
