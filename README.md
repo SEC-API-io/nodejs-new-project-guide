@@ -16,6 +16,17 @@ Guide for setting up new Node.js projects
 ## Do once
 
 - Install `prettier` globally for automatic code formatting on file save
+- Turn on "Prettier: Single Quote" and "Prettier: Trailing Comma" in VS Code settings. Open the Command Palette (Command + Shift + P) and type "Preferences: Open Settings (JSON)". Select it. Add the following lines:
+
+```json
+{
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "es5"
+}
+```
+
+Alternative to `settings.json` - visual settings:
+![prettier-settings](./assets/vs-settings.png)
 
 ## For every new project
 
@@ -96,6 +107,7 @@ const helpers = require('./helpers'); // local module
 - lodash
 - axios
 - dotenv
+- pm2
 
 ## Other Stuff
 
@@ -106,6 +118,10 @@ const helpers = require('./helpers'); // local module
 - Use `.jsonl` files for large JSON files
 - Sort JSON(L) files by `filedAt` or similar timestamp fields to make it easier to read
 - Use `JSON.stringify(obj, null, 2)` to format JSON objects
+- Use `pm2` to run scripts in the background.
+  - Use `ecosystem.config.js` to configure `pm2` to define and run scripts.
+  - `pm2 start ecosystem.config.js` to start the scripts
+  - `pm2 logs` to view logs, `pm2 stop <id>` to stop the scrip, `pm2 restart <id>` to restart the script.
 
 ## VS Code
 
