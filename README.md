@@ -125,7 +125,7 @@ const helpers = require('./helpers'); // local module
 
 ## VS Code
 
-Setup VSCode to run files in terminal on `cmd + enter`:
+Setup VSCode to run files in terminal on `shift + enter`:
 
 - Open the Command Palette (Command + Shift + P) and type "Preferences: Open Keyboard Shortcuts (JSON)". Select it.
 - Add:
@@ -156,6 +156,47 @@ Format file on save:
   "prettier.singleQuote": true,
   "prettier.trailingComma": "es5"
 }
+```
+
+Turn Copilot on/off via `cmd + shift + t`:
+
+- Open `keybindings.json` and add:
+
+```json
+{
+  "key": "cmd+shift+t",
+  "command": "settings.cycle.copilot",
+  "when": "editorFocus"
+}
+```
+
+- Open `settings.json` and add:
+
+```json
+"settings.cycle": [
+    {
+      "id": "copilot",
+      "overrideWorkspaceSettings": true,
+      "values": [
+        {
+          "github.copilot.enable": {
+            "*": false,
+            "markdown": false
+          },
+          "github.copilot.inlineSuggest.enable": false,
+          "github.copilot.editor.enableAutoCompletions": false
+        },
+        {
+          "github.copilot.enable": {
+            "*": true,
+            "markdown": true
+          },
+          "github.copilot.inlineSuggest.enable": true,
+          "github.copilot.editor.enableAutoCompletions": true
+        }
+      ]
+    }
+],
 ```
 
 ## File Stuff
