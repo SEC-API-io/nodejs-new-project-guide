@@ -4,7 +4,8 @@ const { exec } = require('child_process');
 
 const { log } = console;
 
-const fileConfigIndexjs = `require('dotenv').config(); // load variables from .env file
+const fileConfigIndexjs = `const dotenv = require('dotenv'); // load variables from .env file
+dotenv.config({ quiet: true });
 
 const isProduction = process.env.NODE_ENV === 'production';
 
