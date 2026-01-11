@@ -160,6 +160,7 @@ Format file on save:
 
 Turn Copilot on/off via `cmd + shift + t`:
 
+- Install extension "Settings Cycler" (extension ID: hoovercj.vscode-settings-cycler)
 - Open `keybindings.json` and add:
 
 ```json
