@@ -13,7 +13,7 @@ const TIMEZONE = 'America/New_York';
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
 process.env.TZ = TIMEZONE; // force nodejs to use specific timezone
-const isProduction = nodeEnv === 'production';
+const isProduction = NODE_ENV === 'production';
 
 module.exports = {
   app: {
