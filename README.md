@@ -209,3 +209,27 @@ if (require.main === module) {
     run();
 }
 ```
+
+## Shell Stuff
+
+Switch Node.js version automatically when opening a project and `.nvmrc` is present in project dir.
+
+- If `echo $SHELL` == `zsh`, edit file `~/.zshrc`.
+- If `echo $SHELL` == `bash`, edit file `~/.bashrc`.
+
+```bash
+nano ~/.bashrc # or  ~/.zshrc
+# add line
+[ -f .nvmrc ] && nvm use > /dev/null
+```
+
+Ensure shell shows project dir `folder-name $`:
+
+```bash
+nano ~/.bashrc # or  ~/.zshrc
+# add line
+# for zsh shell
+PS1='%B%F{blue}%1d%f%b $ '
+# for bash shell
+PS1='\[\033[01;34m\]\W\[\033[00m\] $ '
+```
