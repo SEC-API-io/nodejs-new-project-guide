@@ -48,7 +48,7 @@ const createDir = (dirPath) => {
 };
 
 const initNodeProject = async () => {
-  const command = `bash -l -c "nvm use 20 && npm init -y && npm i dotenv@16 && git init"`;
+  const command = `bash -c 'export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" && nvm use 20 && npm init -y && npm i dotenv@16 && git init'`;
   await new Promise((res, rej) =>
     exec(command, (err, stdout) => (err ? rej(err) : res(stdout)))
   );
